@@ -59,7 +59,10 @@ class MainActivity : AppCompatActivity() {
 
             webChromeClient = WebChromeClient()
             webViewClient = object : WebViewClient() {
-                override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+                override fun shouldOverrideUrlLoading(
+                    view: WebView?,
+                    request: WebResourceRequest?
+                ): Boolean {
                     return false
                 }
 
@@ -92,7 +95,7 @@ class MainActivity : AppCompatActivity() {
         binding.webView.apply {
             stopLoading()
             webChromeClient = null
-            webViewClient = null
+            webViewClient = WebViewClient()
             destroy()
         }
         super.onDestroy()
